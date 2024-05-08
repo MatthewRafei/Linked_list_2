@@ -13,7 +13,7 @@ int main(void) {
 
     llprint(&ll);
 
-    good_function();
+    //good_function();
 
     return 0;
 }
