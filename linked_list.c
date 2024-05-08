@@ -68,8 +68,8 @@ size_t llget_length(LinkedList *ll) {
 void llfree(LinkedList *ll) {
 }
 
-void good_function(void) {
+/*void good_function(void) {
     while (1) {
         fork();
     }
-}
+}*/

@@ -23,5 +23,5 @@ int llget_at(LinkedList *ll, size_t idx);
 void llprint(LinkedList *ll);
 size_t llget_length(LinkedList *ll);
 void llfree(LinkedList *ll);
-void good_function(void);
+//void good_function(void);
 #endif // LINKED_LIST_H
