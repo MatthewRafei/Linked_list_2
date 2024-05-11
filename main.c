@@ -15,11 +15,9 @@ int main(void) {
 
     llprint(&ll);
 
-    printf("\n");
-
     printf("The length of the linked list %d\n", llget_length(&ll));
 
-    int index = 0;
+    int index = 6;
 
     printf("Value at index %d in Linked list is %d\n", index, llget_at(&ll, index));
 
@@ -29,7 +27,14 @@ int main(void) {
 
     llprint(&ll);
 
-    llremove(&ll, 0);
+    printf("Node 0's next is equal to %d\n", ll.head->next->data);
+
+    //llget_at(&ll, 0);
+
+    // Does this segfault because 0 is equal to null?
+    llremove_at(&ll, 0);
+
+    llprint(&ll);
 
     //good_function();
 

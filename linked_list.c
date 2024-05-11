@@ -41,11 +41,18 @@ void llappend(LinkedList *ll, int data) {
 void llremove_at(LinkedList *ll, size_t idx) {
     Node *n = ll->head;
     Node *p = NULL;
-    for(int i = 0; i < idx; i++){
+
+    if(idx == 0){
+        n = ll->head;
+        ll->head = ll->head->next;
+        node_free(n);
+    }
+
+    for(int i = 0; i < idx - 1; i++){
         n = n -> next;
     }
 
-    printf("What is the data %d at node %d", n->data, idx - 1);
+
 }
 
 // remove node with element equal to argument
@@ -90,7 +97,7 @@ void llprint(LinkedList *ll) {
             printf(" -> ");
         }
         else{
-            printf(" -> NULL");
+            printf(" -> NULL\n");
         }
 
         n = n->next;
