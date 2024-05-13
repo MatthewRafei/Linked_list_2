@@ -27,12 +27,14 @@ int main(void) {
 
     llprint(&ll);
 
-    printf("Node 0's next is equal to %d\n", ll.head->next->data);
+    printf("Node 0's next is equal to %d\n", ll.head->data);
 
     //llget_at(&ll, 0);
 
     // Does this segfault because 0 is equal to null?
     llremove_at(&ll, 0);
+
+    llremove_at(&ll, 2);
 
     llprint(&ll);
 
