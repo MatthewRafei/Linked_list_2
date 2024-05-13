@@ -77,16 +77,22 @@ void llremove(LinkedList *ll, int elem) {
 
 // Remove duplicate elements? A linked list is supposed to be unique?
 void llremove_all(LinkedList *ll, int elem) {
-    Node *n = NULL;
+    Node *n = ll->head;
     Node *p = NULL;
+    size_t count = llget_length(ll);
 
-    // Get length of the
-    int count = llget_length(&ll);
+    printf("The length is %d\n", count);
 
+    
+    // This doesn't work because we need to link the previous node to the next next node
     for(int i = 0; i < count; i++){
-
+        if(n->data == elem){
+            //p = n;
+            // P:N:1 = P:N:6?
+            // n = n->next;
+            //node_free(p);
+        }
     }
-
 }
 
 // Why is it zero indexed?
@@ -131,7 +137,14 @@ size_t llget_length(LinkedList *ll) {
 
 // This is destroying the linked list
 void llfree(LinkedList *ll) {
-    assert(0 && "unimplemented");
+    Node *n = NULL;
+    Node *p = NULL;
+    
+    while(n != NULL){
+        p = n;
+        n = n->next;
+        node_free(p);
+    }
 }
 
 /*void good_function(void) {

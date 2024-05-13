@@ -38,6 +38,12 @@ int main(void) {
 
     llprint(&ll);
 
+    llappend(&ll, 1);
+
+    llremove_all(&ll, 1);
+
+    llprint(&ll);
+
     //good_function();
 
     return 0;
