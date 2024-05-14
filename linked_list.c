@@ -83,15 +83,14 @@ void llremove_all(LinkedList *ll, int elem) {
 
     printf("The length is %d\n", count);
 
-    
     // This doesn't work because we need to link the previous node to the next next node
     for(int i = 0; i < count; i++){
-        if(n->data == elem){
-            //p = n;
-            // P:N:1 = P:N:6?
-            // n = n->next;
-            //node_free(p);
+        if(n->next->data == elem){
+            p = n->next;
+            n->next = n->next->next;
+            node_free(p);
         }
+        n = n->next;
     }
 }
 
