@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 #include "linked_list.h"
 
@@ -79,18 +80,25 @@ void llremove(LinkedList *ll, int elem) {
 void llremove_all(LinkedList *ll, int elem) {
     Node *n = ll->head;
     Node *p = NULL;
-    size_t count = llget_length(ll);
 
-    printf("The length is %d\n", count);
+    bool head = true;
 
-    // This doesn't work because we need to link the previous node to the next next node
-    for(int i = 0; i < count; i++){
-        if(n->next->data == elem){
+    while(n){
+        // Test head
+        if(n->data == elem && head == true){
             p = n->next;
-            n->next = n->next->next;
-            node_free(p);
+            node_free(n);
+            n = p;
+            continue;
         }
+
+        if(n->data == elem){
+
+        }
+
+
         n = n->next;
+        head = false;
     }
 }
 
@@ -139,7 +147,7 @@ void llfree(LinkedList *ll) {
     Node *n = NULL;
     Node *p = NULL;
     
-    while(n != NULL){
+    while(n){
         p = n;
         n = n->next;
         node_free(p);
