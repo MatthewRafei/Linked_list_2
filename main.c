@@ -20,5 +20,9 @@ int main(void) {
 
     llprint(&ll);
 
+    llfree(&ll);
+
+    llprint(&ll);
+
     return 0;
 }

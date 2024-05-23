@@ -83,6 +83,7 @@ void llremove_all(LinkedList *ll, int elem) {
 
     while(n){
         if(n->data == elem){
+            // If head do something different
             if(p == NULL){
                 ll->head = n->next;
                 node_free(n);
@@ -143,18 +144,13 @@ size_t llget_length(LinkedList *ll) {
 
 // This is destroying the linked list
 void llfree(LinkedList *ll) {
-    Node *n = NULL;
+    Node *n = ll->head;
     Node *p = NULL;
     
     while(n){
         p = n;
-        n = n->next;
+        ll->head = n->next;
+        n = ll->head;
         node_free(p);
     }
 }
-
-/*void good_function(void) {
-    while (1) {
-        fork();
-    }
-}*/
