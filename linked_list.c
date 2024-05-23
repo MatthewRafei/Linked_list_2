@@ -83,7 +83,7 @@ void llremove_all(LinkedList *ll, int elem) {
 
     while(n){
         if(n->data == elem){
-            if(p != NULL){
+            if(p == NULL){
                 ll->head = n->next;
                 node_free(n);
                 n = ll->head;
