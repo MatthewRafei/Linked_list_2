@@ -81,24 +81,23 @@ void llremove_all(LinkedList *ll, int elem) {
     Node *n = ll->head;
     Node *p = NULL;
 
-    bool head = true;
-
     while(n){
-        // Test head
-        if(n->data == elem && head == true){
-            p = n->next;
-            node_free(n);
-            n = p;
-            continue;
-        }
-
         if(n->data == elem){
-
+            if(p != NULL){
+                ll->head = n->next;
+                node_free(n);
+                n = ll->head;
+            }
+            else{
+                p->next = n->next;
+                node_free(n);
+                n = p->next;
+            }
         }
-
-
-        n = n->next;
-        head = false;
+        else{
+            p = n;
+            n = n->next;
+        }
     }
 }
 
